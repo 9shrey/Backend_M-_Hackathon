@@ -1,0 +1,24 @@
+<h1>{{MainTitle}}</h1>
+{{#if isAuthenticated }}
+<p>Hi {{username}}!</p>
+<a href="/users/id">View ID token claims</a>
+<br>
+<a href="/auth/acquireToken">Acquire a token to call the Microsoft Graph API</a>
+<br>
+<a href="/auth/signout">Sign out</a>
+{{!-- {{else}}
+<p>Welcome to {{title}}</p>
+ --}}
+{{else}}
+    <form action="/auth/signin" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        <br>
+        {{!-- <input type="submit" value="Sign In"> --}}
+        <a href="/auth/signin">Sign in</a>
+    </form>
+
+{{/if}}
